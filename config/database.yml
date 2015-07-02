@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: student_queue_manager_production
-  username: student_queue_manager
-  password: <%= ENV['STUDENT_QUEUE_MANAGER_DATABASE_PASSWORD'] %>
+  # username: student_queue_manager
+#   password: <%= ENV['STUDENT_QUEUE_MANAGER_DATABASE_PASSWORD'] %>
