@@ -5,24 +5,23 @@ Description: The Student Queue Manager is designed to manage questions for stude
 
 - A table of Users. 
 
-    Includes name, password, class name?, instructor boolean...what other info here?  Do they pick user name, or should it match...something?
+    Includes name, username, instructor boolean.
     Each user may ask many questions, but each question belongs to only one user.
-    Full CRUD operations (including delete?)
+    All CRUD operations except delete.
      
 
 - A table for the Questions. 
 
-    Includes user ID(FK), question, steps taken, expected result, actual result, code link, timestamp, urgency level, and resolved (boolean). 
+    Includes user ID(FK), steps taken, expected result (optional), actual result (optional), code link (optional), timestamp, urgency level, and resolved (boolean). 
     Each user may ask many questions, but each question belongs to one user. (groups will enter their question under one student's name for now)
-    Full CRUD operations?
+    All CRUD operations except delete.
     
 - Comments table. 
 
-    Includes User ID(FK) and comment.
+    Includes User ID(FK), Question ID(FK), and comment.
     Each user may have many comments, but each comment belongs to only one user.
-    - How to tie to questions table?
-    Full CRUD operations?
-    - each comment applies to only one question, but each question may have many comments?
+    Each comment applies to only one question, but each question may have many comments.
+    All CRUD operations except delete.
     
 - Urgency table 
 
@@ -40,24 +39,25 @@ Should Cases:
 - Users should be able to add their question to the queue.
 - Users should be able to mark their question resolved.
 - Users can edit their own question.
+- Should be able to see a list of all questions.
 - Anyone should be able to reply to any of the questions.
 - Only the student who posted the question can mark it resolved.
 - Should have one only urgency description per question.
 - Possible follow-up actions?
-- Will we even allow a "delete" function?  Or only edit/resolved?
 
 Should Not Cases:
 
 - Users should not be able to remove other users' question.
 - Users should not be able to mark other users' questions resolved.
+- No users, questions, or comments should be able to be deleted for now.
 
 
 Additional Requirements:
 
 - For now, groups will enter their question under 1 user's name.
-- Incorporate into slack channel somehow (V2), for now, do we want a reply by method?
-- Some way to track questions not answered within a certain time period?
-- Come back to users table.  open to outside ppl asking questions??  
+- Incorporate into slack channel somehow (V2). 
+
+
 
 
 == README
