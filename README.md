@@ -43,7 +43,7 @@ Should Cases:
 - Anyone should be able to reply to any of the questions.
 - Only the student who posted the question can mark it resolved.
 - Should have one only urgency description per question.
-- Possible follow-up actions?
+
 
 Should Not Cases:
 
