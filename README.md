@@ -27,9 +27,9 @@ Description: The Student Queue Manager is designed to manage questions for stude
 
     A static table with the following values:  
 
-      1. "I cannot move forward at all, not even by changing direction."
-      2. "This is important, but I can work on something else for a bit."
-      3. "General concept question, or otherwise low priority."
+    1. "I cannot move forward at all, not even by changing direction."
+    2. "This is important, but I can work on something else for a bit."
+    3. "General concept question, or otherwise low priority."
 
 
 Should Cases:
