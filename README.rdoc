@@ -5,25 +5,38 @@ Description: The Student Queue Manager is designed to manage questions for stude
 
 - A table of Users. 
 
-    Includes name, class name?, instructor boolean...what other info here?
-    come back to this table.  open to outside ppl asking questions??  ie slack channel?????
+    Includes name, password, class name?, instructor boolean...what other info here?  Do they pick user name, or should it match...something?
+    Each user may ask many questions, but each question belongs to only one user.
+    Full CRUD operations (including delete?)
+     
 
 - A table for the Questions. 
 
-    Includes student ID(FK), question, steps taken, expected result, actual result, code link, timestamp, urgency level, and resolved (boolean). 
-    Each student may ask many questions, but each question belongs to one student. (groups will enter their question under one student's name for now)
+    Includes user ID(FK), question, steps taken, expected result, actual result, code link, timestamp, urgency level, and resolved (boolean). 
+    Each user may ask many questions, but each question belongs to one user. (groups will enter their question under one student's name for now)
+    Full CRUD operations?
     
-- Comments table. Multiple answers/per question.
-    Includes Question ID(FK), Student ID(FK), and comment/answer.
+- Comments table. 
+
+    Includes User ID(FK) and comment.
+    Each user may have many comments, but each comment belongs to only one user.
+    - How to tie to questions table?
+    Full CRUD operations?
+    - each comment applies to only one question, but each question may have many comments?
     
-- Urgency a static table with the following values:  
-    1) "I cannot move forward at all, not even by changing direction."
-    2) "This is important, but I can work on something else for a bit."
-    3) "General concept question, or otherwise low priority."
+- Urgency table 
+
+    A static table with the following values:  
+
+      1) "I cannot move forward at all, not even by changing direction."
+      2) "This is important, but I can work on something else for a bit."
+      3) "General concept question, or otherwise low priority."
 
 
 Should Cases:
 
+- New users should be able to sign themselves up.
+- Users should be able to edit their user information.
 - Users should be able to add their question to the queue.
 - Users should be able to mark their question resolved.
 - Users can edit their own question.
@@ -44,6 +57,7 @@ Additional Requirements:
 - For now, groups will enter their question under 1 user's name.
 - Incorporate into slack channel somehow (V2), for now, do we want a reply by method?
 - Some way to track questions not answered within a certain time period?
+- Come back to users table.  open to outside ppl asking questions??  
 
 
 == README
