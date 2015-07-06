@@ -1,3 +1,51 @@
+
+#STUDENT QUEUE MANAGER
+
+Description: The Student Queue Manager is designed to manage questions for students who need assistance with their projects.  The SQM will record the timestamp of the questions as their posted, as well as the urgency of the question.  Any student may answer questions posted, but only the student who posted the question can mark it resolved. 
+
+- A table of Users. 
+
+    Includes name, class name?, instructor boolean...what other info here?
+    come back to this table.  open to outside ppl asking questions??  ie slack channel?????
+
+- A table for the Questions. 
+
+    Includes student ID(FK), question, steps taken, expected result, actual result, code link, timestamp, urgency level, and resolved (boolean). 
+    Each student may ask many questions, but each question belongs to one student. (groups will enter their question under one student's name for now)
+    
+- Comments table. Multiple answers/per question.
+    Includes Question ID(FK), Student ID(FK), and comment/answer.
+    
+- Urgency a static table with the following values:  
+    1) "I cannot move forward at all, not even by changing direction."
+    2) "This is important, but I can work on something else for a bit."
+    3) "General concept question, or otherwise low priority."
+
+
+Should Cases:
+
+- Users should be able to add their question to the queue.
+- Users should be able to mark their question resolved.
+- Users can edit their own question.
+- Anyone should be able to reply to any of the questions.
+- Only the student who posted the question can mark it resolved.
+- Should have one only urgency description per question.
+- Possible follow-up actions?
+- Will we even allow a "delete" function?  Or only edit/resolved?
+
+Should Not Cases:
+
+- Users should not be able to remove other users' question.
+- Users should not be able to mark other users' questions resolved.
+
+
+Additional Requirements:
+
+- For now, groups will enter their question under 1 user's name.
+- Incorporate into slack channel somehow (V2), for now, do we want a reply by method?
+- Some way to track questions not answered within a certain time period?
+
+
 == README
 
 This README would normally document whatever steps are necessary to get the
@@ -26,29 +74,3 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
-
-#QUEUE MANAGER
-Description: The Queue Manager is designed to manage a queue for students who need assistance with their projects.
-
-- A table of Students. Includes student name, class name?
-- A table for the Queue/Questions. Includes student ID(FK), question, code link, timestamp, urgency level. Each student may ask many questions, but each question belongs to one student. (how to handle group work below)
-- Answer table? One answer per question or multiple answers?
-- Admin/User? Or could just have an instructor table...one Instructor to many students, and give them privileges to mark answered. Should List instructor ID with answer.
-- Do you want a static table for urgency descriptions or just use enums, etc?
-- Would it be possible to have multiple urgency descriptions per question?
-
-Should Cases:
-
-- Students should be able to add their name and question to the queue.
-- Students should be able to remove their name from the queue....perhaps better to not remove, but mark question "answered/no further help needed."
-- Admin should be able to reply to questions, and mark them resolved.
-- Possible follow-up actions?
-- Can other students answer questions? (then who marks resolved?)
-
-Should Not Cases:
-
-- Students should not be able to remove other students from the queue.
-- Since this isn't a slack channel, do we want a reply by method? or how to incorporate into slack?
-- Additional Requirements:
-
-- How to handle Groups, if at all? could just enter 1 student's name for the whole group, or could have groups table that lists student members, or could have group name as student name...
