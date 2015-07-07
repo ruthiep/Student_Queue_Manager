@@ -11,9 +11,10 @@ class UsersController < ApplicationController
     else
       render :new
     end
-    
+  end
+  
     def all
-      @user = User.all
+      @users = User.all
     end
   
   private
