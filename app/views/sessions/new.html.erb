@@ -1,8 +1,5 @@
 <%= form_tag sessions_path do %>
-  <div class="field">
-    <%= label_tag :name %>
-    <%= text_field_tag :name, params[:name] %>
-  </div>
+  
   <div class="field">
     <%= label_tag :email %>
     <%= text_field_tag :email, params[:email] %>
@@ -17,3 +14,4 @@
   </div>
   <div class="actions"><%= submit_tag "Log in" %></div>
 <% end %>
+
