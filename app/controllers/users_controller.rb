@@ -7,17 +7,22 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to '/users', :notice => "Signed up!"
     else
       render :new
     end
   end
-  
-    def all
+    
+    #this index is empty because it's the home page right now, and they need to login/signup first.
+    # def index
+    #
+    # end
+    
+    def index
       @users = User.all
     end
     
-    def index
+    def welcome
       
     end
   

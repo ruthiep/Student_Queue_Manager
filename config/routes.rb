@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "login" => "sessions#new",      :as => "login"
   get "signup" => "users#new",        :as => "signup"
   
-  get "users" => "users#all"
+  get "users" => "users#index"
   get "users" => "users#new"
   
   resources :users
@@ -12,7 +12,23 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'users#index'
+  root 'users#welcome'
+  
+  get "/items" => 'items#index'
+    
+  get "/items/new" => 'items#new'
+  
+  post "/items" => 'items#create'
+  
+  get "/items/save" => 'items#save'
+  
+  get "/items/:id" => 'items#show'
+  
+  get "/items/:id/edit" => 'items#edit'
+  
+  post "/items/:id/update" => 'items#update'
+  
+  get "/items/:id/destroy" => 'items#destroy'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
