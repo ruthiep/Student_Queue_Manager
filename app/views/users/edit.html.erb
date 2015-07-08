@@ -1,10 +1,20 @@
 <h1>Edit page</h1>
-<form action="/users/<%= @user.id %>/update" method="post">
- 
-  <input type="text" name="name" value="<%= @user.name %>">
- 
-  <input type="email" name="email" value="<%= @user.email %>">
 
-  <input type="submit" value="Submit">
+<%= form_for @user, url: { action: "update"} do |f| %>
 
-</form>
+ 
+  Name: <%= f.text_field :name%>
+ 
+  Email:<%= f.text_field :email%>
+
+  <%= f.submit %>
+<% end %>
+
+
+
+
+
+
+
+ 
+
