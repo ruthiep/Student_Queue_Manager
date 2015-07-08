@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   get "users" => "users#index"
   get "users" => "users#new"
   
+  post "/users" => 'users#create'
+  get "/users/save" => 'users#save'
+  get "/users/:id" => 'users#show'
+  get "/users/:id/edit" => 'users#edit'
+  post "/users/:id/update" => 'users#update'
+  
+  # get "/users/:id/destroy" => 'users#destroy'
+  
   resources :users
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.

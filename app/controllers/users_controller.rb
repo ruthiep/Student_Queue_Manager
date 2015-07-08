@@ -25,6 +25,26 @@ class UsersController < ApplicationController
     def welcome
       
     end
+    
+    def show
+      @user = User.find(params[:id])
+    end
+    
+    def edit
+      @user = User.find(params[:id])
+      #form to update
+    end
+    
+    def update
+      @user = User.find(params[:id])
+      @user.update_attributes(name: params[:name], email: params[:email])
+      # if @item.update_attributes(params[:item])
+      redirect_to '/users', notice: "The item has now been updated."
+      #
+      #   render 'edit'
+      # end
+      #edit form updates db
+    end
   
   private
   def user_params
