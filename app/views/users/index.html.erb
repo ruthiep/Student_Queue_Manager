@@ -1,21 +1,11 @@
 <h1>All Users</h1>
 
 <% @users.each do |user| %>
-  <p><%= user.name%></p>
+  <p><a href= "/users/<%= user.id %>"><%= user.name %></a></p>
 
 <% end  %>
 
-<table>
- 
-<% @users.each do |user| %>
- <tr>
-    <td><a href= "/users/<%= user.id %>"><%= user.name %></a></td>
-    <td><%= user.email %></td>
-      <td><a href= "/users/<%= user.id %>/edit">Edit</a></td>
-    <td><a href= "/users/<%= user.id %>/destroy">Delete</a></td>
-  </tr>
-  <% end %>
-</table>
+
 
 
 

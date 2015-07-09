@@ -27,14 +27,17 @@ class UsersController < ApplicationController
     
   def edit
     @user = User.find(params[:id])
+    if (current_user.email != @user.email)
+      redirect_to '/users', :notice => "You can only edit your own information."
+    end
     #form to update
   end
     
   def update
     @user = User.find(params[:id])
-    if 
+  
     @user.update_attributes(user_params)
-     if @item.update_attributes(user_params)
+     if (@user.update_attributes(user_params))
        redirect_to '/users', notice: "The item has now been updated."
      else
         render '/edit', notice: "Please try again."
