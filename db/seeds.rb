@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Urgency.create([
+    {level: "I cannot move forward at all, not even by changing direction."},
+    {level: "This is important, but I can work on something else for a bit."},
+    {level: "General concept question, or otherwise low priority."}
+
+    ])
+
+
