@@ -32,12 +32,13 @@ class UsersController < ApplicationController
     
   def update
     @user = User.find(params[:id])
-    @user.update_attributes(name: params[:name], email: params[:email])
-    # if @item.update_attributes(params[:item])
-    redirect_to '/users', notice: "The item has now been updated."
-    #
-    #   render 'edit'
-    # end
+    if 
+    @user.update_attributes(user_params)
+     if @item.update_attributes(user_params)
+       redirect_to '/users', notice: "The item has now been updated."
+     else
+        render '/edit', notice: "Please try again."
+    end
     #edit form updates db
   end
   

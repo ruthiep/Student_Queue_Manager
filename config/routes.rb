@@ -3,16 +3,15 @@ Rails.application.routes.draw do
   get "login" => "sessions#new",      :as => "login"
   get "signup" => "users#new",        :as => "signup"
   
-  get "users" => "users#index"
-  get "users" => "users#new"
+  # get "users" => "users#index"
+ #  get "users" => "users#new"
+ #
+ #  post "/users" => 'users#create'
+ #  get "/users/:id" => 'users#show'
+ #  get "/users/:id/edit" => 'users#edit'
+ #  patch "/users/:id" => 'users#update'
   
-  post "/users" => 'users#create'
-  get "/users/save" => 'users#save'
-  get "/users/:id" => 'users#show'
-  get "/users/:id/edit" => 'users#edit'
-  post "/users/:id/update" => 'users#update'
-  
-  # get "/users/:id/destroy" => 'users#destroy'
+  # delete "/users/:id" => 'users#destroy'
   
   resources :users
   resources :sessions
@@ -27,8 +26,6 @@ Rails.application.routes.draw do
   get "/items/new" => 'items#new'
   
   post "/items" => 'items#create'
-  
-  get "/items/save" => 'items#save'
   
   get "/items/:id" => 'items#show'
   

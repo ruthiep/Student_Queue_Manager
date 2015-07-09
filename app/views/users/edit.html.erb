@@ -1,7 +1,6 @@
 <h1>Edit page</h1>
 
-<%= form_for @user, url: { action: "update"} do |f| %>
-
+<%= form_for @user do |f| %>
  
   Name: <%= f.text_field :name%>
  
