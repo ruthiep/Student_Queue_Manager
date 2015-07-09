@@ -1,0 +1,22 @@
+<h1>Edit your information here</h1>
+
+<%= form_for @question do |f| %>
+ 
+  Question: <%= f.text_field :steps_taken%>
+ 
+  Expected Results:<%= f.text_field :expected_result%>
+  
+  Actual Results:<%= f.text_field :actual_result%>
+  
+  Code Link:<%= f.text_field :code_link%>
+  
+  Urgency 1 2 or 3:<%= f.text_field :urgency_id%>
+  
+  Resolved Y/N:<%= f.boolen :resolved%>
+
+  <%= f.submit %>
+<% end %>
+
+
+TODO
+<!--need to add user id to question -->
