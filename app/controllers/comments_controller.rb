@@ -14,9 +14,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    # this doesn't work
+    # @comment.user_id = current_user.id
     if @comment.save
-      redirect_to '/comments',
-         :notice => "Your comment has been posted to the question!"
+      redirect_to '/questions',
+         :notice => "Your comment has been posted to this question!"
     else
       render :new
     end
@@ -25,7 +27,7 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.find(params[:id])
     @name = User.find(@comment.user_id)
-    @urgency = Urgency.find(@comment.urgency_id)
+    @question = Question.find(@comment.question_id)
   end
 
   def edit
@@ -50,8 +52,7 @@ class CommentsController < ApplicationController
   def comment_params
 
     #need to fix this section as well
-    params.require(:comment).permit(:steps_taken, :expected_results, :actual_results,
-           :code_link, :urgency_id, :user_id, )
+    params.require(:comment).permit(:answer, :question_id, :user_id, )
   end
 end
 

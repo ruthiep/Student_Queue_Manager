@@ -1,9 +1,9 @@
-<%= form_for @question do |f| %>
-  <% if @question.errors.any? %>
+<%= form_for @comment do |f| %>
+  <% if @comment.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
       <ul>
-        <% for message in @question.errors.full_messages %>
+        <% for message in @comment.errors.full_messages %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -11,12 +11,12 @@
   <% end %>
   <div class="field">
     <%= f.label "Comment" %>
-    <%= f.text_field :answer %>
+    <%= f.text_area :answer %>
   </div>
-  
   <div class="field">
     <%= f.hidden_field("user_id", {:value => @user.id})%>
    
   </div>
+ 
   <div class="actions"><%= f.submit %></div>
 <% end %>
