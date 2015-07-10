@@ -6,12 +6,14 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    @user = current_user
   end
 
   def create
-    @user = Question.new(question_params)
+    @question = Question.new(question_params)
     if @question.save
-      redirect_to '/questions', :notice => "Signed up!"
+      redirect_to '/questions',
+         :notice => "Your question has been added to the queue!"
     else
       render :new
     end
@@ -19,12 +21,14 @@ class QuestionsController < ApplicationController
     
   def show
     @question = Question.find(params[:id])
+    @name = User.find(@question.user_id)
+    @urgency = Urgency.find(@question.urgency_id)
   end
   
   def edit
     TODO
     @question = Question.find(params[:id])
-    #need to fix this one to match to user
+    
   end
   
   def update
@@ -32,7 +36,7 @@ class QuestionsController < ApplicationController
 
     @question.update_attributes(question_params)
      if (@question.update_attributes(question_params))
-       redirect_to '/questions', notice: "The item has now been updated."
+       redirect_to '/questions', notice: "The question has now been updated."
      else
         render '/edit', notice: "Please try again."
     end
@@ -41,10 +45,10 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    TODO
+
     #need to fix this section as well
-    params.require(:question).permit(:name, :email, :password,
-           :password_confirmation, :crypted_password, :salt )
+    params.require(:question).permit(:steps_taken, :expected_results, :actual_results,
+           :code_link, :urgency_id, :user_id)
   end
 end
 
