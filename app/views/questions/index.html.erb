@@ -1,8 +1,8 @@
-<h1>All Comments</h1>
+<h1>All Questions</h1>
 
-<% @comments.each do |comment| %>
-  <p><a href= "/comments/<%= comment.id %>"><%= comment.answer%></a></p>
-  <p><a href= "/comments/<%= comment.id %>"><%= comment.question_id%></a></p>
+<% @questions.each do |question| %>
+  <p><a href= "/questions/<%= question.id %>"><%= question.steps_taken%></a></p>
+  
 
 <% end  %>
 

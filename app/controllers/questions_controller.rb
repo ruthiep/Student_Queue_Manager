@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @name = User.find(@question.user_id)
     @urgency = Urgency.find(@question.urgency_id)
-    @comment = Comment.where(question_id: @question.id)
+    # @comment = Comment.where(question_id: )
   end
   
   def edit

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
   get "/questions"  => 'questions#index'
   
+  get "/comments" => 'comments#index'
+  
   
   resources :users
   resources :sessions
