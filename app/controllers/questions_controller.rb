@@ -7,6 +7,8 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     @user = current_user
+    #take out here and from form, and add to create
+    #@question.user_id = current_user
   end
 
   def create
@@ -26,7 +28,7 @@ class QuestionsController < ApplicationController
   end
   
   def edit
-    TODO
+  
     @question = Question.find(params[:id])
     
   end
@@ -48,7 +50,7 @@ class QuestionsController < ApplicationController
 
     #need to fix this section as well
     params.require(:question).permit(:steps_taken, :expected_results, :actual_results,
-           :code_link, :urgency_id, :user_id)
+           :code_link, :urgency_id, :user_id, )
   end
 end
 

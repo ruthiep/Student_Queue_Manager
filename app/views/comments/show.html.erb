@@ -1,0 +1,12 @@
+<h1>Asked by: <%= @name.name %></h1>
+<h3>Question: <%= @question.steps_taken %></h3>
+<h3>Expected Results: <%= @question.expected_results %></h3>
+<h3>Actual Results: <%= @question.actual_results %></h3>
+<h3>Link to my Code: <%= @question.code_link %></h3>
+<h3>Question status: <%= @urgency.level %></h3>
+<h3>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></h3>
+
+<p>If this is your account, you can click this link to update your account.</p>
+
+<a href="/users/<%= @question.user_id %>/edit">Edit</a>
+<a href="/questions">Go Back to all Questions</a>

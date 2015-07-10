@@ -1,0 +1,8 @@
+<h1>All Comments</h1>
+
+<% @comments.each do |comment| %>
+  <p><a href= "/comments/<%= comment.id %>"><%= comment.answer%></a></p>
+
+<% end  %>
+
+<a href="/questions/new">Post your question</a>
