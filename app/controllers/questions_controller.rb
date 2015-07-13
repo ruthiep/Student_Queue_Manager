@@ -25,13 +25,10 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
     @name = User.find(@question.user_id)
     @urgency = Urgency.find(@question.urgency_id)
-    # @comment = Comment.where(question_id: )
   end
   
   def edit
-  
-    @question = Question.find(params[:id])
-    
+    @question = Question.find(params[:id])  
   end
   
   def update
@@ -43,15 +40,13 @@ class QuestionsController < ApplicationController
      else
         render '/edit', notice: "Please try again."
     end
-    #edit form updates db
   end
 
   private
   def question_params
 
-    #need to fix this section as well
     params.require(:question).permit(:steps_taken, :expected_results, :actual_results,
-           :code_link, :urgency_id, :user_id, )
+           :code_link, :urgency_id, :user_id, :resolved)
   end
 end
 
