@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "/questions"  => 'questions#index'
   
   get "/comments" => 'comments#index'
+  get "/comments/:id" => 'comments#show'
   
   
   resources :users

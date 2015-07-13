@@ -10,5 +10,12 @@
 
 <a href="/users/<%= @question.user_id %>/edit">Edit</a>
 <a href="/questions">Go Back to all Questions</a>
-<a href="/comments/new">Add your answer here!</a>
+<form>
+<a href="/comments/<%= @question.id %>">Add your answer here!</a>
+
+
+ 
+
+<!--want to do a select from comments table sbased on question id -->
+
 <a href="/comments">View all answers for this questions</a>
