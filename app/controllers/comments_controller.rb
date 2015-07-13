@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.new
     @user = current_user
+    @question_id = params[:question_id]
     #take out here and from form, and add to create
     #@question.user_id = current_user
   end

@@ -6,6 +6,6 @@
 
 <p>If this is your account, you can click this link to update your account.</p>
 
-<a href="/users/<%= @question.user_id %>/edit">Edit</a>
-<a href="/comments/<%= @question.id %>/edit">Add your comment to this question</a>
+<a href="/questions/<%= @question.id %>/comments/<%= @comment.id %>/edit">Edit</a>
+<a href="/questions/<%= @question.id %>/comments/new">Add your comment to this question</a>
 <a href="/questions">Go Back to all Questions</a>
