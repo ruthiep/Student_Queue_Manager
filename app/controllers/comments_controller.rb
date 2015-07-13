@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
 
   def index
-    @comments = Comment.all
+    @comments = Comment.where("question_id = ?", params[:question_id])
   end 
 
   def new

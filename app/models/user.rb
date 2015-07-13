@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   
   has_many :questions
+  has_many :comments
   # attr_accessible :name, :email, :password, :password_confirmation
   
   validates_presence_of :name

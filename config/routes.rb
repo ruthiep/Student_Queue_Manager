@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   
   get "/questions"  => 'questions#index'
   
-  get "/comments" => 'comments#index'
+  resources :questions do
+    resources :comments
+  end
+  # get "/comments/new/user_id/question_id" => 'comments#new'
+  
+  # get "/comments" => 'comments#index'
   get "/comments/:id" => 'comments#show'
   get "/questions/:id/edit" => 'questions#edit'
   get "/comments/new" => 'comments#new'
@@ -25,6 +30,8 @@ Rails.application.routes.draw do
   resources :sessions
   resources :questions
   resources :comments
+  
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
