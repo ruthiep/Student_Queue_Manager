@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "signup" => "users#new",        :as => "signup"
   
   # get "users" => "users#index"
- #  get "users" => "users#new"
+ #  get "users/new" => "users#new"
  #
  #  post "/users" => 'users#create'
  #  get "/users/:id" => 'users#show'
@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/comments" => 'comments#index'
   get "/comments/:id" => 'comments#show'
   get "/questions/:id/edit" => 'questions#edit'
+  get "/comments/new" => 'comments#new'
   
   
   resources :users

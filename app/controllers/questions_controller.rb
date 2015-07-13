@@ -27,8 +27,13 @@ class QuestionsController < ApplicationController
     @urgency = Urgency.find(@question.urgency_id)
   end
   
-  def edit
+  def edit    
     @question = Question.find(params[:id])  
+    if (current_user.id != @question.user_id)
+      redirect_to '/questions', :notice => "Sorry, you can't edit that question!"
+    else
+      render :edit
+    end
   end
   
   def update
