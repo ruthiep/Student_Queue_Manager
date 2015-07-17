@@ -2,10 +2,40 @@ header {
   height: 80px;
   background-image: url("ocs_icon.png");
   background-size: 80px;
-  
 }
 
 body {
-  color: blue;
-  
+  color: #0E6B9A;
+}
+
+nav {  
+  float: left;
+  width: 25%;
+}
+
+.info {
+  margin-left: 32%;
+  padding-left: 5px;
+}
+.left {
+  float: left;
+/*  margin: ;*/
+}
+
+.questions {
+  float: right;
+  margin-left: 30%;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul,li {
+  list-style-type: none;
+  list-style-position: inside;
+  color: red;
+  line-height: 150%;
+  margin: 0;
+  padding: 0;
 }

@@ -1,5 +1,19 @@
 
 <h1>Question: <%= @question.steps_taken %></h1>
+
+<div class="nav">
+<nav><p>If this is your question, you can click this link to edit the question.</p><p>Please mark it resolved once you have your answer!</p>
+<ul>
+  <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
+  <li><a href="/questions">Go Back to all Questions</a></li>
+
+  <li><a href="/questions/<%= @question.id %>/comments/new">Add your answer here!</a></li>
+
+  <li><a href="/questions/<%= @question.id %>/comments">View all answers for this question.</a></li>
+</ul>
+</nav>
+
+<div class="info">
 <h3>Asked by: <%= @name.name %></h3>
 
 <h3>Expected Results: <%= @question.expected_results %></h3>
@@ -11,18 +25,9 @@
                         <% else %>NO</h3>
                         <% end%>
                       
-<h3>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></h3>
-
-<p>If this is your question, you can click this link to edit the question.  Please mark it resolved once you have your answer!</p>
-
-<p><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></p>
-<p><a href="/questions">Go Back to all Questions</a></p>
-
-<p><a href="/questions/<%= @question.id %>/comments/new">Add your answer here!</a></p>
+<h3>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></h3></div></div>
 
 
- 
 
-<!--want to do a select from comments table sbased on question id -->
 
-<p><a href="/questions/<%= @question.id %>/comments">View all answers for this question.</a></p>
+<!--want to do a select from comments table based on question id -->
