@@ -1,11 +1,21 @@
 <h1>Asked by: <%= @name.name %></h1>
-<h3>Question: <%= @question.steps_taken %></h3>
 
+
+<div class="nav">
+<nav>
+  <ul>
+    <p>If this is your account, you can click this link to update your account.</p>
+    <li><a href="/questions/<%= @question.id %>/comments/<%= @comment.id %>/edit">Edit</a></li>
+  <li><a href="/questions/<%= @question.id %>/comments/new">Add your comment to this question</a></li>
+  <li><a href="/questions">Go Back to all Questions</a></li>
+</ul></nav>
+
+<div class="inside">
+  <h3>Question: <%= @question.steps_taken %></h3>
 <h3>Answer or Comment: <%= @comment.answer %></h3>
+</div>
+</div>
 
 
-<p>If this is your account, you can click this link to update your account.</p>
 
-<a href="/questions/<%= @question.id %>/comments/<%= @comment.id %>/edit">Edit</a>
-<a href="/questions/<%= @question.id %>/comments/new">Add your comment to this question</a>
-<a href="/questions">Go Back to all Questions</a>
+

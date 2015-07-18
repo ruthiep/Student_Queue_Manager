@@ -1,10 +1,10 @@
 <h1>Edit your information here</h1>
 
 <%= form_for @question do |f| %>
- <ul  >
-  <li>Question: <%= f.text_area :steps_taken%></li>
+ <ul>
+  <li>Question: <%= f.text_field :steps_taken%></li>
  
- <li> Expected Results: <%= f.text_area :expected_results%></li>
+ <li> Expected Results: <%= f.text_field :expected_results%></li>
   
   <li>Actual Results: <%= f.text_field :actual_results%></li>
   
