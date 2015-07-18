@@ -30,6 +30,11 @@ nav {
 /*  margin: ;*/
 }
 
+.text_field {
+  padding: 10px;
+  
+}
+
 h1 {
   text-align: center;
 }
@@ -44,10 +49,10 @@ ul,li {
   padding-bottom: 10px;
 }
 
-/*form {
+.form {
   width: 10px;
   float: left;
   text-align: right;
   margin-right: 10px;
   display: block
-}*/
+}

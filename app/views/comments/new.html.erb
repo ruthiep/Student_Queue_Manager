@@ -11,7 +11,7 @@
   <% end %>
   <div class="field">
     <%= f.label "Comment" %>
-    <%= f.text_area :answer %>
+    <%= f.text_field :answer %>
   </div>
   <div class="field">
     <%= f.hidden_field("user_id", {:value => @user.id})%>
