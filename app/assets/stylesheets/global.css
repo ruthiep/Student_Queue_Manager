@@ -2,7 +2,7 @@ header {
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   text-align: center;
   background-attachment: fixed;
   color: red;
@@ -10,20 +10,43 @@ header {
   background-image: url("ocs_icon.png");
   background-size: 80px;
   border: 2px solid black;
+  /*background: inherit;*/
 }
 
 .heading {
   height: 80px;
-  background-attachment: fixed;
-  
+  background-attachment: fixed; 
 }
+/*
+.wrapper {
+    width:100%;
+    position:fixed;
+    z-index:10;
+    background:inherit;
+}
+
+.bottom-wrapper {
+    width:100%;
+    padding-top:92px;
+    z-index:5;
+    overflow:auto;
+}*/
+
+
+/*<div class="wrapper">
+    ...your header here...
+</div>
+<div class="bottom-wrapper">
+    ...your main content here...
+</div>*/
 
 body {
   color: #0E6B9A;
   display: block;
 }
 
-nav {  
+nav { 
+/*  z-index: -1;*/
   float: left;
   width: 25%;
 }
@@ -31,6 +54,7 @@ nav {
 .inside {
   margin-left: 32%;
   padding-left: 5px;
+  
 }
 
 .footer {

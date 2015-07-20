@@ -1,10 +1,11 @@
 <h1>All Users</h1>
 
+<div class="inside">
 <% @users.each do |user| %>
   <p><a href= "/users/<%= user.id %>"><%= user.name %></a></p>
 
 <% end  %>
-
+</div>
 <a href="/questions">See all questions in the queue.</a>
 
 
