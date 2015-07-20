@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>StudentQueueManager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= %>
 </head>
 <body>
-  <header></header>
+  <div class="heading">
+  <header><h1><strong>SQM</strong></h1></header>
+</div>
 
   <%= yield %>
 
