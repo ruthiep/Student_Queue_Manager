@@ -25,7 +25,7 @@
     <% if current_user %>
         <p>Logged in as <%= current_user.email %>.</p>
         <%= link_to "Log out", logout_path %>
-        <%= link_to "Home", '/users' %>
+        <%= link_to "Home", '/questions' %>
       <% else %>
         <%= link_to "Sign up", signup_path %> or
         <%= link_to "log in", login_path %>

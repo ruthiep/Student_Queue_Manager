@@ -14,12 +14,14 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to '/questions',
+      redirect_to questions_path(:id => @question.id),
          :notice => "Your question has been added to the queue!"
     else
-      render :new
+      render :new, :notice => "Sorry, please enter your question again."
     end
   end
+  
+
     
   def show
     @question = Question.find(params[:id])
@@ -30,7 +32,7 @@ class QuestionsController < ApplicationController
   def edit    
     @question = Question.find(params[:id])  
     if (current_user.id != @question.user_id)
-      redirect_to '/questions', :notice => "Sorry, you can't edit that question!"
+      redirect_to '/questions', notice: "Sorry, you can't edit that question!"
     else
       render :edit
     end
