@@ -19,7 +19,7 @@
 
 <h3>Expected Results: <%= @question.expected_results %></h3>
 <h3>Actual Results: <%= @question.actual_results %></h3>
-<h3>Link to my Code: <%= @question.code_link %></h3>
+<h3>Link to my Code: <%= markdown @question.code_link %></h3>
 <h3>Question status: <%= @urgency.level %></h3>
 <h3>Question resolved: <% if (@question.resolved == true)%>
                         YES</h3>
