@@ -45,6 +45,7 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'redcarpet'
 gem 'sorcery'
 
 gem 'rails_12factor', group: :production
