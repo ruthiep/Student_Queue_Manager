@@ -3,12 +3,10 @@
 <div class="nav">
 <nav><div><a href="/questions/new">Post your question here</a></div></nav>
 
-<div class="mobile">
-  <p>test test test</p>
-</div>
+
 <div class="inside">
 <% @questions.each do |question| %>
-  <p><a href= "/questions/<%= question.id %>"><%= question.steps_taken%></a></p>
+  <p><a href= "/questions/<%= question.id %>"><%= markdown question.steps_taken%></a></p>
   
 
 <% end  %>
