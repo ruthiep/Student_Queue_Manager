@@ -1,10 +1,11 @@
 <!--added markdown to line 2 -->
 
-<h1>Question: <%= markdown @question.steps_taken %></h1>
+
 
 <div class="nav">
 <nav><p>If this is your question, you can click this link to edit the question.</p><p>Please mark it resolved once you have your answer!</p>
 <ul>
+  
   <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
   <li><a href="/questions">Go Back to all Questions</a></li>
 
@@ -15,19 +16,21 @@
 </nav>
 
 <div class="inside">
-<h3>Asked by: <%= @name.name %></h3>
+  <ul>
+<li>Question: <%= markdown @question.steps_taken %></li>
+<li>Asked by: <%= @name.name %></li>
 
-<h3>Expected Results: <%= @question.expected_results %></h3>
-<h3>Actual Results: <%= @question.actual_results %></h3>
-<h3>Link to my Code: <%= markdown @question.code_link %></h3>
-<h3>Question status: <%= @urgency.level %></h3>
-<h3>Question resolved: <% if (@question.resolved == true)%>
-                        YES</h3>
-                        <% else %>NO</h3>
+<li>Expected Results: <%= @question.expected_results %></li>
+<li>Actual Results: <%= @question.actual_results %></li>
+<li>Link to my Code: <%= markdown @question.code_link %></li>
+<li>Question status: <%= @urgency.level %></li>
+<li>Question resolved: <% if (@question.resolved == true)%>
+                        YES</li>
+                        <% else %>NO</li>
                         <% end%>
                       
 <h3>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></h3>
-
+</ul>
 </div>
 </div>
 
