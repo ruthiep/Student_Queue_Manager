@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     @user = current_user
+    
     #take out here and from form, and add to create
     #@question.user_id = current_user
   end

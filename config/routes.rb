@@ -13,17 +13,17 @@ Rails.application.routes.draw do
   
   # delete "/users/:id" => 'users#destroy'
   
-  get "/questions"  => 'questions#index'
+  
   
   resources :questions do
     resources :comments
   end
   # get "/comments/new/user_id/question_id" => 'comments#new'
   
-  # get "/comments" => 'comments#index'
-  get "/comments/:id" => 'comments#show'
-  get "/questions/:id/edit" => 'questions#edit'
-  get "/comments/new" => 'comments#new'
+  # get "/questions"  => 'questions#index'
+ #  get "/comments/:id" => 'comments#show'
+ #  get "/questions/:id/edit" => 'questions#edit'
+ #  get "/comments/new" => 'comments#new'
   
   
   resources :users
@@ -39,20 +39,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'users#welcome'
   
-  get "/items" => 'items#index'
-    
-  get "/items/new" => 'items#new'
-  
-  post "/items" => 'items#create'
-  
-  get "/items/:id" => 'items#show'
-  
-  get "/items/:id/edit" => 'items#edit'
-  
-  post "/items/:id/update" => 'items#update'
-  
-  get "/items/:id/destroy" => 'items#destroy'
-
+ 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
