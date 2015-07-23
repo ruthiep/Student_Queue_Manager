@@ -26,13 +26,27 @@
 <li>Actual Results: <%= @question.actual_results %></li>
 <li>Link to my Code: <%= markdown @question.code_link %></li>
 <li>Question status: <%= @urgency.level %></li>
-<li>Question resolved: <% if (@question.resolved == true)%>
+<li>Question resolved: <% if (@question.resolved == true) %>
                         YES</li>
                         <% else %>NO</li>
-                        <% end%>
+                        <% end %>
                       
 <h3>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></h3>
 </ul>
+<div class="answers">
+  <p>Comments added to this question:</p>
+  <p>---------------------------------------------</p>
+   <% if (@comments.length != 0) %>
+ 
+      <% @comments.each do |comment| %>
+      <p><a href= "/comments/<%= comment.id %>"><%= comment.answer%></a></p>
+   <!-- <p>added by @name.name </p> -->
+   <p>question id is <%= comment.question_id %></p>
+     <% end %>
+   <% else %>
+     <p>None yet. Be the first to answer this question!</p>
+  <% end %>
+</div>
 </div>
 </div>
 
