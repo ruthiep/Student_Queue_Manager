@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   resources :questions
   resources :comments
   
+  #this didn't work
+    get "/questions/:id" => 'questions#show'
   
   
   # The priority is based upon order of creation: first created -> highest priority.

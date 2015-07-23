@@ -15,10 +15,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to questions_path(:id => @question.id),
-         :notice => "Your question has been added to the queue!"
+      redirect_to question_path(@question.id),
+         notice: "Your question has been added to the queue!"
     else
-      render :new, :notice => "Sorry, please enter your question again."
+      render :new, notice: "Sorry, please enter your question again."
     end
   end
   
