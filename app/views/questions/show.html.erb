@@ -11,7 +11,34 @@
   <li>You can edit your questions only.</li>
   <%end%>
  
-  <li><a href="/questions/<%= @question.id %>/comments/new">Add your answer here!</a></li>
+ <li>Add your answer here!
+   <%= form_for @comment do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @comment.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label "Comment" %>
+    <%= f.text_area :answer %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field("user_id", {:value => @user.id})%>
+   
+  </div>
+  
+  <div class="field">
+    <%= f.hidden_field("question_id", {:value => params[:id]})%>
+   
+  </div>
+ 
+  <div class="actions"><%= f.submit %></div>
+<% end %></li>
 
  
 </ul>
@@ -48,33 +75,7 @@
   <% end %>
 </div>
 
-<%= form_for @comment do |f| %>
-  <% if @comment.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @comment.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label "Comment" %>
-    <%= f.text_area :answer %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field("user_id", {:value => @user.id})%>
-   
-  </div>
-  
-  <div class="field">
-    <%= f.hidden_field("question_id", {:value => params[:id]})%>
-   
-  </div>
- 
-  <div class="actions"><%= f.submit %></div>
-<% end %>
+
 
 
 </div>
