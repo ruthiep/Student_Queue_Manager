@@ -10,10 +10,20 @@
   
   <li>Code Link: <%= f.text_field :code_link%></li>
   
-  <li>Urgency 1 2 or 3: <%= f.text_field :urgency_id%></li>
+  <li>Urgency Level: <%= f.select :urgency_id, 
+    options_for_select([
+      [1, 1],
+      [2, 2],
+      [3,3]
+    ])%></li>
   
   <li>Resolved Y/N: <%= f.check_box :resolved%></li>
 </ul>
   <%= f.submit %>
 <% end %>
 
+     <!-- f.select :urgency_id, options_for_select([
+    ["I cannot move forward at all, not even by changing direction.", 1],
+    ["This is important, but I can work on something else for a bit.", 2],
+    ["General concept question, or otherwise low priority.", 3]
+    ]) --> 

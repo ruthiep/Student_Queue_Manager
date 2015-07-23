@@ -10,7 +10,16 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label "Question" %>
+    <h3>Instructions for posting a Question on the Student Queue Manager:</h3>
+    <ul>
+      <li> 1. Push your code to GitHub, even if/though it's not working as desired.</li>
+      <li>2. Make a new Issue in your GitHub repo.</li>
+      <li>3. Answer the usual questions in the text of the Issue (what steps taken, expected vs. actual, what you've tried, relevant files).</li>
+      <li>4. Post a link to the Issue in a Help channel on Slack.</li>
+      <li>5. If you enter an Urgency Level of 1 (I cannot move forward at all, not even by changing direction.) or 2(This is important, but I can work on something else for a bit.), all fields <strong>must</strong> be entered in.</li>
+<li></li>
+<li>If you have a general concept/non-urgent questions, enter it in the first field, and expected and actual results, as well as code link can be left blank.  These questions must have an Urgency level of 3: General concept question, or otherwise low priority.</li>
+    <%= f.label "General Question/Steps Taken " %>
     <%= f.text_area :steps_taken %>
   </div>
   <div class="field">
@@ -27,7 +36,12 @@
   </div>
   <div class="field">
     <%= f.label "Urgency Status" %>
-    <%= f.text_field :urgency_id %>
+    <%= f.select :urgency_id, options_for_select([
+    ["I cannot move forward at all, not even by changing direction.", 1],
+    ["This is important, but I can work on something else for a bit.", 2],
+    ["General concept question, or otherwise low priority.", 3]
+    ]) %>
+   
   </div>
   <div class="field">
     <%= f.hidden_field("user_id", {:value => @user.id})%>
