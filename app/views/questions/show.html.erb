@@ -13,14 +13,14 @@
  
   <li><a href="/questions/<%= @question.id %>/comments/new">Add your answer here!</a></li>
 
-  <li><a href="/questions/<%= @question.id %>/comments">View all answers for this question.</a></li>
+ 
 </ul>
 </nav>
 
 <div class="inside">
   <ul>
 <li>Question: <%= markdown @question.steps_taken %></li>
-<li>Asked by: <%= @name.name %></li>
+<li>Asked by: <%= @asker.name %></li>
 
 <li>Expected Results: <%= @question.expected_results %></li>
 <li>Actual Results: <%= @question.actual_results %></li>
@@ -47,6 +47,36 @@
      <p>None yet. Be the first to answer this question!</p>
   <% end %>
 </div>
+
+<%= form_for @comment do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @comment.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label "Comment" %>
+    <%= f.text_area :answer %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field("user_id", {:value => @user.id})%>
+   
+  </div>
+  
+  <div class="field">
+    <%= f.hidden_field("question_id", {:value => params[:id]})%>
+   
+  </div>
+ 
+  <div class="actions"><%= f.submit %></div>
+<% end %>
+
+
 </div>
 </div>
 

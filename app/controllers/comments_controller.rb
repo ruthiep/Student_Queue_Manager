@@ -27,8 +27,8 @@ class CommentsController < ApplicationController
   
   def show
     @comment = Comment.find(params[:id])
-    @name = User.find(@comment.user_id)
     @question =  Question.find(@comment.question_id)
+    @asker = User.find(@question.user_id)
   end
 
   def edit
