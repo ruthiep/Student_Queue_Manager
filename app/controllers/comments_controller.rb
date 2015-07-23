@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     # this doesn't work
     # @comment.user_id = current_user.id
     if @comment.save
-      redirect_to '/questions',
+      redirect_to question_path(@comment.question_id),
          :notice => "Your comment has been posted to this question!"
     else
       render :new
@@ -29,6 +29,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @question =  Question.find(@comment.question_id)
     @asker = User.find(@question.user_id)
+    @answered_by = User.find(@comment.user_id)
   end
 
   def edit
