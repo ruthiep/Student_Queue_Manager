@@ -50,4 +50,4 @@ end
 gem 'redcarpet'
 gem 'sorcery'
 
-gem 'rails_12factor'# , group: :production
+gem 'rails_12factor', group: :production
