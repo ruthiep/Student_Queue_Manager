@@ -67,8 +67,7 @@
  
       <% @comments.each do |comment| %>
       <p><a href= "/comments/<%= comment.id %>"><%= comment.answer%></a></p>
-   <!-- <p>added by @name.name </p> -->
-   <p>question id is <%= comment.question_id %></p>
+  
      <% end %>
    <% else %>
      <p>None yet. Be the first to answer this question!</p>

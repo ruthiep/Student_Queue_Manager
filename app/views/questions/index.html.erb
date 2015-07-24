@@ -1,4 +1,7 @@
+
+
 <h1>All Questions</h1>
+
 
 <div class="nav">
 <nav><div><a href="/questions/new">Post your question here</a></div></nav>
@@ -6,7 +9,7 @@
 
 <div class="inside">
 <% @questions.each do |question| %>
-  <p><a href= "/questions/<%= question.id %>"><%= markdown question.steps_taken%></a></p>
+<p>---<a href= "/questions/<%= question.id %>"><%= markdown question.steps_taken%></a></p>
   
 
 <% end  %>

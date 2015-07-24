@@ -4,49 +4,39 @@ header {
   top: 0;
   z-index: 10;
   text-align: center;
-  background-attachment: fixed;
-  color: red;
-  height: 80px;
+  color: blue;
   background-image: url("ocs_icon.png");
   background-size: 80px;
-  border: 2px solid black;
-  /*background: inherit;*/
+  border: 2px solid blue;
+  background-color: white;
 }
 
 .heading {
   height: 80px;
-  background-attachment: fixed; 
-}
-/*
-.wrapper {
-    width:100%;
-    position:fixed;
-    z-index:10;
-    background:inherit;
+  background-attachment: fixed;
+  background-position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
-.bottom-wrapper {
+
+.main {
     width:100%;
-    padding-top:92px;
-    z-index:5;
-    overflow:auto;
-}*/
-
-
-/*<div class="wrapper">
-    ...your header here...
-</div>
-<div class="bottom-wrapper">
-    ...your main content here...
-</div>*/
+    z-index:-1;
+    margin-top: 5px;
+    overflow: auto;
+}
 
 body {
   color: #0E6B9A;
   display: block;
+  width:100%;
+  height:100%;
+  margin-top: 10px;
 }
 
 nav { 
-/*  z-index: -1;*/
   float: left;
   width: 25%;
 }
@@ -58,7 +48,7 @@ nav {
 }
 
 .footer {
-  border-top: 2px solid blue;
+  border-top: 3px solid blue;
   padding-top: 10px;
   margin-top: 10px;
   clear: both;
@@ -66,7 +56,7 @@ nav {
 }
 .left {
   float: left;
-/*  margin: ;*/
+
 }
 
 .text_field {
@@ -81,7 +71,6 @@ h1 {
 ul,li {
   list-style-type: none;
   list-style-position: inside;
-/*  color: red;*/
   line-height: 150%;
   margin: 0;
   padding: 0;
@@ -115,6 +104,7 @@ input {
   border-radius: 5px;
   margin: 5px;
 }
+
 .mobile {
   width: auto;
   height: auto;
