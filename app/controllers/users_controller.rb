@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   
   def welcome
-    
+    if (current_user)
+      redirect_to '/questions'
+    end
   end
   
   def index
