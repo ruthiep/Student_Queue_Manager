@@ -48,7 +48,7 @@ class QuestionsController < ApplicationController
 
     @question.update_attributes(question_params)
      if (@question.update_attributes(question_params))
-       redirect_to '/questions', notice: "The question has now been updated."
+       redirect_to question_path(@question.id), notice: "The question has now been updated."
      else
         render '/edit', notice: "Please try again."
     end
