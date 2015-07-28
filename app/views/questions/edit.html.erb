@@ -1,6 +1,6 @@
 <h1>Edit your information here</h1>
 
-<%= form_for @question do |f| %>
+<%= form_for @question, url: question_path(@question.id) do |f| %>
  <ul>
   <li>Question: <%= f.text_area :steps_taken%></li>
  

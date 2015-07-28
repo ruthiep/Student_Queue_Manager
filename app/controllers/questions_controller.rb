@@ -31,7 +31,7 @@ class QuestionsController < ApplicationController
     @urgency = Urgency.find(@question.urgency_id)    
     @comments = Comment.where(question_id: params[:id])
     @comment = Comment.new
-    
+  
   end
   
   def edit    

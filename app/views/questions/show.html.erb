@@ -65,18 +65,25 @@
   <p>Comments added to this question:</p>
   <p>---------------------------------------------</p>
    <% if (@comments.length != 0) %>
- 
-      <% @comments.each do |comment| %>
-      <p><a href= "/comments/<%= comment.id %>"><%= comment.answer%></a></p>
+       <ul>
+         <% @comments.each do |comment| %>
+           <% answered_by = User.find(comment.user_id)%>
+            
+           <li><%= answered_by.name %> says:
+               <ul>
+                 <li><%= comment.answer %></li>
+               </ul>
+            </li>
+        
+        </ul>
+    
+        
   
      <% end %>
    <% else %>
      <p>None yet. Be the first to answer this question!</p>
   <% end %>
 </div>
-
-
-
 
 </div>
 </div>
