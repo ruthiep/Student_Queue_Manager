@@ -99,6 +99,11 @@ ul,li {
   padding-top: 20px;
 }
 
+th, tr {
+  width: 100px;
+  text-align: center;
+}
+
 textarea {
   width: 200px;
   height: 50px;

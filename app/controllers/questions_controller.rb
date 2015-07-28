@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   
   def index
     @questions = Question.all
+    #need to get asker info for each question
   end 
 
   def new

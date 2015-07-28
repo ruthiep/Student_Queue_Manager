@@ -10,11 +10,23 @@
 
 
 <div class="inside">
-<% @questions.each do |question| %>
-<p>---<a href= "/questions/<%= question.id %>"><%= markdown question.steps_taken%></a></p>
-  
-
-<% end  %>
+  <table>
+    <tr>
+      <th>Question Number</th>
+      <th>Posted By</th>
+      <th>Urgency Level</th>
+    </tr>
+          
+    <% @questions.each do |question| %>
+    <% @asker = User.find(question.user_id) %>
+    <tr>
+      <td>
+        <a href= "/questions/<%= question.id %>"><%= question.id %></a></td>
+      <td><%= @asker.name %></td>
+      <td><%= question.urgency_id %></td>
+    </tr>
+    <% end  %>
+  </table>
 </div></div>
 
 </div>
