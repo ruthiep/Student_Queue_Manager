@@ -1,4 +1,6 @@
-<%= form_for @question do |f| %>
+<div class="container">
+  <div class="row">
+  <%= form_for @question do |f| %>
   <% if @question.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -9,6 +11,9 @@
       </ul>
     </div>
   <% end %>
+</div>
+
+</div class="row">
   <div class="field">
     <h3>Instructions for posting a Question on the Student Queue Manager:</h3>
     <ul>
@@ -19,23 +24,27 @@
       <li>5. If you enter an Urgency Level of 1 (I cannot move forward at all, not even by changing direction.) or 2(This is important, but I can work on something else for a bit.), all fields <strong>must</strong> be entered in.</li>
 <li></li>
 <li>If you have a general concept/non-urgent questions, enter it in the first field, and expected and actual results, as well as code link can be left blank.  These questions must have an Urgency level of 3: General concept question, or otherwise low priority.</li>
-    <%= f.label "General Question/Steps Taken " %>
+</div>
+<form class="form-horizontal">
+  <div class="form-group" "col-md-6 control-label">
+    <%= f.label "General Question/Steps Taken: " %>
     <%= f.text_area :steps_taken %>
   </div>
-  <div class="field">
-    <%= f.label :expected_results %>
+  
+ <div class="form-group" "col-md-6 control-label">
+    <%= f.label "Expected Results Were: " %>
     <%= f.text_area :expected_results %>
   </div>
-  <div class="field">
-    <%= f.label :actual_results %>
+  <div class="form-group">
+    <%= f.label "What Actually Happened: " %>
     <%= f.text_area :actual_results %>
   </div>
-  <div class="field">
-    <%= f.label "Link to My Code" %>
+  <div class="form-group">
+    <%= f.label "Link to My Code: " %>
     <%= f.text_field :code_link %>
   </div>
   <div class="btn btn-default dropdown-toggle">
-    <%= f.label "Urgency Status" %>
+    <%= f.label "Urgency Status: " %>
     <%= f.select :urgency_id, options_for_select([
     ["I cannot move forward at all, not even by changing direction.", 1],
     ["This is important, but I can work on something else for a bit.", 2],
@@ -47,5 +56,11 @@
     <%= f.hidden_field("user_id", {:value => @user.id})%>
    
   </div>
-  <div class="actions"><%= f.submit %></div>
+  <div class="form-group">
+    <div class="col-md-offset-4 col-md-8">
+  <div class="actions btn btn-default"><%= f.submit %></div></div>
 <% end %>
+</div>
+</div>
+</form>
+</div>

@@ -123,17 +123,16 @@ input {
  width: 100%; 
 }
 
-@media screen and (max-width: 500px) {
+/*@media screen and (max-width: 500px) {
   .inside {
     float: left;
     margin-left: 2px;
     display: block;
-    height: 75%;
-  }
+  }*/
   
   nav { 
    width: auto;
-   margin-top: 76%;
+/*   margin-top: 76%;*/
   }
 }
 
