@@ -12,7 +12,7 @@
 
 <div class="inside">
   <h3>Question: <%= @question.steps_taken %></h3>
-<h3>Answer or Comment: <%= @comment.answer %></h3>
+<h3>Answer or Comment: <%= markdown (@comment.answer) %></h3>
 <h3>Answered By: <%= @answered_by.name %></h3>
 </div>
 </div>

@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
   
   
   def show
+
     @question = Question.find(params[:id])
     @asker = User.find(@question.user_id)
     @user = current_user
