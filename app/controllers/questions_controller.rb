@@ -1,7 +1,11 @@
 class QuestionsController < ApplicationController
   
   def index
+    if (!current_user)
+      redirect_to '/'
+    else
     @questions = Question.all
+  end
     #need to get asker info for each question
   end 
 

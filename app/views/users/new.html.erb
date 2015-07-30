@@ -30,6 +30,15 @@
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation %>
         </div>
+        <div class="field">
+          <%= f.label :instructor %>
+          <%= f.select :instructor, options_for_select([
+           ["Yes", true],
+           ["No", false]
+           ]) %>
+          
+          
+        </div>
   <div class="actions"><%= f.submit %></div>
   <% end %>
 
