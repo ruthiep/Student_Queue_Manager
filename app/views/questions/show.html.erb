@@ -1,94 +1,104 @@
 <!--added markdown to line 2 -->
 
+<div class="container">
 
-
-<div class="nav">
   
-<nav><ul>
-  <% if(current_user.id == @question.user_id)%>
-  <p>If this is your question, you can click this link to edit the question.</p><p>Please mark it resolved once you have your answer!</p>
-  <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
-  <%else%>
-  <!-- <li>You can edit your questions only.</li> -->
-  <%end%>
- 
- <li>Add your answer here!</li>
-   <%= form_for @comment do |f| %>
-  <% if @comment.errors.any? %>
-    <div class="error_messages">
-      <h2>Form is invalid</h2>
-      <ul>
-        <% for message in @comment.errors.full_messages %>
-          <li><%= message %></li>
+    <nav><ul>
+      <% if(current_user.id == @question.user_id)%>
+      <p>If this is your question, you can click this link to edit the question.</p>
+      <p>Please mark it resolved once you have your answer!</p>
+      <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
+      <%else%>
+      <!-- <li>You can edit your questions only.</li> -->
+      <%end%>
+    </ul></nav>
+
+    <ul>
+      <li>Question: <%= markdown @question.steps_taken %></li>
+      <li>Asked by: <%= @asker.name %></li>
+
+      <li>Expected Results: <%= markdown @question.expected_results %></li>
+      <li>Actual Results: <%= markdown @question.actual_results %></li>
+      <li>Link to my Code: <%= markdown @question.code_link %></li>
+      <li>Question status: <%= @urgency.level %></li>
+      <li>Question resolved: <% if (@question.resolved == true) %>
+        YES</li>
+        <% else %>NO</li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label "Comment" %>
-    <%= f.text_area :answer %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field("user_id", {:value => @user.id})%>
-   
-  </div>
-  
-  <div class="field">
-    <%= f.hidden_field("question_id", {:value => params[:id]})%>
-   
-  </div>
- 
-  <div class="actions"><%= f.submit %></div>
-<% end %></li>
-
- 
-</ul>
-</nav>
-
-<div class="inside">
-  <ul>
-<li>Question: <%= markdown @question.steps_taken %></li>
-<li>Asked by: <%= @asker.name %></li>
-
-<li>Expected Results: <%= markdown @question.expected_results %></li>
-<li>Actual Results: <%= markdown @question.actual_results %></li>
-<li>Link to my Code: <%= markdown @question.code_link %></li>
-<li>Question status: <%= @urgency.level %></li>
-<li>Question resolved: <% if (@question.resolved == true) %>
-                        YES</li>
-                        <% else %>NO</li>
-                        <% end %>
                       
-<h3>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></h3>
-</ul>
-<div class="answers">
-  <p>Comments added to this question:</p>
-  <p>---------------------------------------------</p>
-   <% if (@comments.length != 0) %>
-       <ul>
-         <% @comments.each do |comment| %>
-           <% answered_by = User.find(comment.user_id)%>
+        <li>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></li>
+      </ul>
+ 
+     
+
+    <div class="answers">
+      <p>Comments added to this question:</p>
+      <p>---------------------------------------------------------------</p>
+      <% if (@comments.length != 0) %>
+      <ul>
+        <% @comments.each do |comment| %>
+        <% answered_by = User.find(comment.user_id)%>
             
-           <li><%= answered_by.name %> says:
-               <ul>
-                 <li><%= markdown comment.answer %></li>
-               </ul>
-            </li>
-        
-        </ul>
-    
-        
+        <li><%= answered_by.name %> says:
+          <ul>
+            <li><%= markdown comment.answer %></li>
+          </ul>
+        </li>
+        <li>----------------</li>
+      </ul>
   
-     <% end %>
-   <% else %>
-     <p>None yet. Be the first to answer this question!</p>
-  <% end %>
-</div>
+      <% end %>
+      <% else %>
+      <p>None yet. Be the first to answer this question!</p>
+      <% end %>
+    </div>
+
+  </div>
+
+  <form class="form-horizontal">
+  
+    <nav><ul>
+      <% if(current_user.id == @question.user_id)%>
+      <p>If this is your question, you can click this link to edit the question.</p><p>Please mark it resolved once you have your answer!</p>
+      <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
+      <%else%>
+      <!-- <li>You can edit your questions only.</li> -->
+      <%end%>
+ 
+      <li>Add your answer here!</li>
+      <%= form_for @comment do |f| %>
+      <% if @comment.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @comment.errors.full_messages %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.label "Comment" %>
+        <%= f.text_area :answer %>
+      </div>
+      <div class="form-group">
+        <%= f.hidden_field("user_id", {:value => @user.id})%>
+   
+      </div>
+  
+      <div class="form-group">
+        <%= f.hidden_field("question_id", {:value => params[:id]})%>
+   
+      </div>
+ 
+      <div class="actions"><%= f.submit %></div>
+      <% end %></li>
+
+ 
+    </ul>
+  </nav></form>
 
 </div>
-</div>
-
-
 
 
 <!--want to do a select from comments table based on question id -->

@@ -26,23 +26,34 @@
 <li>If you have a general concept/non-urgent questions, enter it in the first field, and expected and actual results, as well as code link can be left blank.  These questions must have an Urgency level of 3: General concept question, or otherwise low priority.</li>
 </div>
 <form class="form-horizontal">
-  <div class="form-group" "col-md-6 control-label">
+  <div class="form-group col-md-4">
     <%= f.label "General Question/Steps Taken: " %>
+    <div class="col-md-8">
     <%= f.text_area :steps_taken %>
   </div>
+  </div>
   
- <div class="form-group" "col-md-6 control-label">
+ <div class="form-group col-md-4">
     <%= f.label "Expected Results Were: " %>
+    <div class="col-md-8">
     <%= f.text_area :expected_results %>
   </div>
-  <div class="form-group">
+  </div>
+  
+  <div class="form-group col-md-4">
     <%= f.label "What Actually Happened: " %>
+    <div class="col-md-8">
     <%= f.text_area :actual_results %>
   </div>
-  <div class="form-group">
+</div>
+
+  <div class="form-group col-md-4">
     <%= f.label "Link to My Code: " %>
-    <%= f.text_field :code_link %>
+    <div class="col-md-8">
+    <%= f.text_area :code_link %>
   </div>
+  </div>
+  
   <div class="btn btn-default dropdown-toggle">
     <%= f.label "Urgency Status: " %>
     <%= f.select :urgency_id, options_for_select([
@@ -56,11 +67,12 @@
     <%= f.hidden_field("user_id", {:value => @user.id})%>
    
   </div>
-  <div class="form-group">
-    <div class="col-md-offset-4 col-md-8">
-  <div class="actions btn btn-default"><%= f.submit %></div></div>
-<% end %>
+  <div class="form-group col-md-offset-4 col-md-8">
+   
+  <div class="actions btn btn-default"><%= f.submit %></div>
 </div>
+<% end %>
+
 </div>
 </form>
 </div>
