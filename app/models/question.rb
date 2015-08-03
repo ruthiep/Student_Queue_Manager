@@ -5,5 +5,6 @@ class Question < ActiveRecord::Base
   
   validates_presence_of :steps_taken
   
+  scope :unresolved, where(resolved: false)
 end
 
