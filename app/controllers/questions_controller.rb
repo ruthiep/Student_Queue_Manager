@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
     if (!current_user)
       redirect_to '/'
     else
-    @questions = Question.unresolved.order("urgency_id ASC, created_at DESC")
+    @questions = Question.unresolved.order("urgency_id ASC, created_at DESC").includes(:user)
   end
     #need to get asker info for each question
   end 
