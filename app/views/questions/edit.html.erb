@@ -21,8 +21,12 @@
   
   <li>Resolved Y/N: <%= f.check_box :resolved%></li>
 </ul>
-  <%= f.submit %>
-<% end %>
+
+         <div class="form-group">
+           <button type="submit" class="btn btn-default"><%= f.submit %>
+         </div>
+         <% end %>
+       </div>
 </form>
 </div>
      <!-- f.select :urgency_id, options_for_select([
@@ -30,3 +34,5 @@
     ["This is important, but I can work on something else for a bit.", 2],
     ["General concept question, or otherwise low priority.", 3]
     ]) --> 
+       
+        
