@@ -23,11 +23,10 @@
     </tr>
           
     <% @questions.each do |question| %>
-    <% @asker = User.find(question.user_id) %>
     <tr>
       <td>
         <a href= "/questions/<%= question.id %>"><%= question.id %></a></td>
-      <td><%= @asker.name %></td>
+      <td><%= question.user.name %></td>
       <td><%= question.urgency_id %></td>
     </tr>
     <% end  %>
