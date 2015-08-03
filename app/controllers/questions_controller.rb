@@ -12,7 +12,6 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     @user = current_user
-    
     #take out here and from form, and add to create
     #@question.user_id = current_user
   end
@@ -29,7 +28,6 @@ class QuestionsController < ApplicationController
   
   
   def show
-
     @question = Question.find(params[:id])
     @asker = User.find(@question.user_id)
     @user = current_user
