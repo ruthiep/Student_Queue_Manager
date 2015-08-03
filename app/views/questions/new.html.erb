@@ -13,7 +13,7 @@
     <% end %>
   </div>
 
-</div class="row">
+  <div class="row">
 <div class="field">
   <h3>Instructions for posting a Question on the Student Queue Manager:</h3>
   <ul>
@@ -25,67 +25,71 @@
     <li></li>
     <li>If you have a general concept/non-urgent questions, enter it in the first field, and expected and actual results, as well as code link can be left blank.  These questions must have an Urgency level of 3: General concept question, or otherwise low priority.</li>
   </div>
-  <form class="form-horizontal">
-    <div class="row">
-      <div class="form-group col-md-4">
-        <%= f.label "General Question/Steps Taken: " %>
-        <div class="col-md-8">
-          <%= f.text_area :steps_taken %>
-        </div>
-      </div>
-    </div>
+</div>
   
-    <div class="row">
-      <div class="form-group col-md-4">
-        <%= f.label "Expected Results Were: " %>
-        <div class="col-md-8">
-          <%= f.text_area :expected_results %>
-        </div>
+<form class="form-horizontal">
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label "General Question/Steps Taken: " %>
       </div>
+      <div class="col-md-8">
+        <%= f.text_area :steps_taken %>
+      
     </div>
+  </div>
   
-    <div class="row">
-      <div class="form-group col-md-4">
-        <%= f.label "What Actually Happened: " %>
-        <div class="col-md-8">
-          <%= f.text_area :actual_results %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label "Expected Results Were: " %>
+       </div>
+      <div class="col-md-8">
+        <%= f.text_area :expected_results %>
+     
     </div>
+  </div>
+  
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label "What Actually Happened: " %>
+       </div>
+      <div class="col-md-8">
+        <%= f.text_area :actual_results %>
+     
+    </div>
+  </div>
     
-    <div class="row">
-      <div class="form-group col-md-4">
-        <%= f.label "Link to My Code: " %>
-        <div class="col-md-8">
-          <%= f.text_area :code_link %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="form-group col-md-4">
+      <%= f.label "Link to My Code: " %>
+       </div>
+      <div class="col-md-8">
+        <%= f.text_area :code_link %>
+     
     </div>
+  </div>
   
-    <div class="row">
-      <div class="dropdown">
-        <div class="btn btn-default dropdown-toggle">
-          <%= f.label "Urgency Status: " %>
-          <%= f.select :urgency_id, options_for_select([
-          ["I cannot move forward at all, not even by changing direction.", 1],
-          ["This is important, but I can work on something else for a bit.", 2],
-          ["General concept question, or otherwise low priority.", 3]
-          ]) %>
-        </div>
+  <div class="row">
+    <div class="dropdown">
+      <div class="btn btn-default dropdown-toggle">
+        <%= f.label "Urgency Status: " %>
+        <%= f.select :urgency_id, options_for_select([
+        ["I cannot move forward at all, not even by changing direction.", 1],
+        ["This is important, but I can work on something else for a bit.", 2],
+        ["General concept question, or otherwise low priority.", 3]
+        ]) %>
       </div>
     </div>
+  </div>
   
-    <div class="field">
-      <%= f.hidden_field("user_id", {:value => @user.id})%>
+  <div class="field">
+    <%= f.hidden_field("user_id", {:value => @user.id})%>
+  </div>
    
-    </div>
-   
-    <div class="form-group">
-      <button type="submit" class="btn btn-default"><%= f.submit %>
-      </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default"><%= f.submit %>
       <% end %>
     </div>
 
-  </div>
-</form>
+    
+  </form>
 </div>
