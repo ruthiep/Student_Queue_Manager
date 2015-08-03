@@ -35,26 +35,34 @@
       </div>
     </div>
   
+  <div class="row">
     <div class="form-group col-md-4">
       <%= f.label "Expected Results Were: " %>
       <div class="col-md-8">
         <%= f.text_area :expected_results %>
       </div>
     </div>
+    </div>
   
+   <div class="row">
     <div class="form-group col-md-4">
       <%= f.label "What Actually Happened: " %>
       <div class="col-md-8">
         <%= f.text_area :actual_results %>
       </div>
+      </div>
     </div>
 
+ <div class="row">
     <div class="form-group col-md-4">
       <%= f.label "Link to My Code: " %>
       <div class="col-md-8">
         <%= f.text_area :code_link %>
       </div>
     </div>
+  </div>
+  
+   <div class="row">
     <div class="dropdown">
     <div class="btn btn-default dropdown-toggle">
       <%= f.label "Urgency Status: " %>
@@ -63,9 +71,10 @@
       ["This is important, but I can work on something else for a bit.", 2],
       ["General concept question, or otherwise low priority.", 3]
       ]) %>
-   
+   </div>
     </div>
   </div>
+  
     <div class="field">
       <%= f.hidden_field("user_id", {:value => @user.id})%>
    
