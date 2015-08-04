@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-5 col-md-offset-3">
+    <div class="col-md-5">
       <ul>
         <% if(current_user.id == @question.user_id)%>
         <li>If this is your question, you can click this link to edit the question.</li>
@@ -9,10 +9,9 @@
         <%end%>
       </ul>
     </div>
-  </div>
   
-  <div class="row">
-    <div class="col-md-8 col-md-offset-4">
+  
+    <div class="col-md-7">
       <ul>
         <li>Question: <%= markdown @question.steps_taken %></li>
         <li>Asked by: <%= @asker.name %></li>
@@ -36,21 +35,21 @@
   </div>
   
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4 col-md-offset-1">
       <div class="form">  
       
         <p>Add your answer here!</p>
         <%= form_for @comment do |f| %>
-          <% if @comment.errors.any? %>
-            <div class="error_messages">
-              <h2>Form is invalid</h2>
-              <ul>
-                <% for message in @comment.errors.full_messages %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
+        <% if @comment.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @comment.errors.full_messages %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
   
         <div class="form-group">
           <%= f.label :answer, "Comment" %>
