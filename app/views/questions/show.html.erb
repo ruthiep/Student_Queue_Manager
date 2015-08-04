@@ -1,17 +1,5 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-5 col-md-offset-1">
-      <ul>
-        <% if(current_user.id == @question.user_id)%>
-        <li>If this is your question, you can click this link to edit the question.</li>
-        <li>Please mark it resolved once you have your answer!</li>
-        <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
-        <%end%>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="row">
+<div class="container">
+  <div class="row"> 
     <div class="col-md-6 col-md-offset-1">
       <ul>
         <li>Question: <%= markdown @question.steps_taken %></li>
@@ -33,11 +21,19 @@
         </li>  
       </ul>
     </div>
-  </div>
-  <div class="clearfix visible-xs-block"></div>
-  <div class = "row break">
     
+    <div class="col-md-5">
+      <ul>
+        <% if(current_user.id == @question.user_id)%>
+        <li>If this is your question, you can click this link to edit the question.</li>
+        <li>Please mark it resolved once you have your answer!</li>
+        <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
+        <%end%>
+      </ul>
+    </div>
   </div>
+  
+  <div class="clearfix visible-xs-block"></div>
   
   <div class="row">
     <div class= "col-md-6 col-md-offset-1">
@@ -97,9 +93,6 @@
 
       </div>
     </div>
-    
-   
   </div>
 </div>
-    
 
