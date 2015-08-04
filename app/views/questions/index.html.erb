@@ -1,38 +1,36 @@
 <div class="container">
-  <div class="main">
-
-    <div class="row">
-      <div class="title">
-        <h1>All Questions</h1>
+  <div class="page-header">
+    <h1>All Questions</h1>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3">
+      <div class="nav">
+        <nav><a href="/questions/new">Post your question here</a></nav>
       </div>
     </div>
-
-  </div class="row">
-  <div class="col-md-3">
-    <div class="nav">
-      <nav><div><a href="/questions/new">Post your question here</a></div></nav>
-
-    </div>
+    
     <div class="col-md-9">
-      <div class="inside">
-        <table>
-          <tr>
-            <th>Question Number</th>
-            <th>Posted By</th>
-            <th>Urgency Level</th>
-          </tr>
+      <table>
+        <tr>
+          <th>Question Number</th>
+          <th></th>
+          <th>Posted By</th>
+          <th></th>
+          <th>Urgency Level</th>
+        </tr>
           
-          <% @questions.each do |question| %>
+        <% @questions.each do |question| %>
           <tr>
             <td>
               <a href= "/questions/<%= question.id %>"><%= question.id %></a></td>
-              <td><%= question.user.name %></td>
-              <td><%= question.urgency_id %></td>
-            </tr>
-            <% end  %>
-          </table>
-        </div></div>
-      </div>
+            <td></td>
+            <td><%= question.user.name %></td>
+            <td></td>
+            <td><%= question.urgency_id %></td>
+          </tr>
+          <% end  %>
+      </table>
     </div>
   </div>
 </div>
