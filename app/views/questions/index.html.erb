@@ -1,39 +1,39 @@
 <div class="container">
   <div class="main">
 
-<div class="row">
-<div class="title">
-<h1>All Questions</h1>
-</div>
-</div>
+    <div class="row">
+      <div class="title">
+        <h1>All Questions</h1>
+      </div>
+    </div>
 
-</div class="row">
-<div class="col-md-3">
-<div class="nav">
-<nav><div><a href="/questions/new">Post your question here</a></div></nav>
+  </div class="row">
+  <div class="col-md-3">
+    <div class="nav">
+      <nav><div><a href="/questions/new">Post your question here</a></div></nav>
 
-</div>
-<div class="col-md-9">
-<div class="inside">
-  <table>
-    <tr>
-      <th>Question Number</th>
-      <th>Posted By</th>
-      <th>Urgency Level</th>
-    </tr>
+    </div>
+    <div class="col-md-9">
+      <div class="inside">
+        <table>
+          <tr>
+            <th>Question Number</th>
+            <th>Posted By</th>
+            <th>Urgency Level</th>
+          </tr>
           
-    <% @questions.each do |question| %>
-    <tr>
-      <td>
-        <a href= "/questions/<%= question.id %>"><%= question.id %></a></td>
-      <td><%= question.user.name %></td>
-      <td><%= question.urgency_id %></td>
-    </tr>
-    <% end  %>
-  </table>
-</div></div>
-</div>
-</div>
-</div>
+          <% @questions.each do |question| %>
+          <tr>
+            <td>
+              <a href= "/questions/<%= question.id %>"><%= question.id %></a></td>
+              <td><%= question.user.name %></td>
+              <td><%= question.urgency_id %></td>
+            </tr>
+            <% end  %>
+          </table>
+        </div></div>
+      </div>
+    </div>
+  </div>
 </div>
 

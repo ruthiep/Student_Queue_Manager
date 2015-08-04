@@ -1,37 +1,79 @@
-<!--added markdown to line 2 -->
-
-<div class="container">
-
-  
-    <nav><ul>
-      <% if(current_user.id == @question.user_id)%>
-      <p>If this is your question, you can click this link to edit the question.</p>
-      <p>Please mark it resolved once you have your answer!</p>
-      <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
-      <%else%>
-      <!-- <li>You can edit your questions only.</li> -->
-      <%end%>
-    </ul></nav>
-
-    <ul>
-      <li>Question: <%= markdown @question.steps_taken %></li>
-      <li>Asked by: <%= @asker.name %></li>
-
-      <li>Expected Results: <%= markdown @question.expected_results %></li>
-      <li>Actual Results: <%= markdown @question.actual_results %></li>
-      <li>Link to my Code: <%= markdown @question.code_link %></li>
-      <li>Question status: <%= @urgency.level %></li>
-      <li>Question resolved: <% if (@question.resolved == true) %>
-        YES</li>
-        <% else %>NO</li>
-        <% end %>
-                      
-        <li>Time Posted: <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %></li>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-5 col-md-offset-3">
+      <ul>
+        <% if(current_user.id == @question.user_id)%>
+        <li>If this is your question, you can click this link to edit the question.</li>
+        <li>Please mark it resolved once you have your answer!</li>
+        <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
+        <%end%>
       </ul>
- 
-     
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-8 col-md-offset-4">
+      <ul>
+        <li>Question: <%= markdown @question.steps_taken %></li>
+        <li>Asked by: <%= @asker.name %></li>
+        <li>Expected Results: <%= markdown @question.expected_results %></li>
+        <li>Actual Results: <%= markdown @question.actual_results %></li>
+        <li>Link to my Code: <%= markdown @question.code_link %></li>
+        <li>Question status: <%= @urgency.level %></li>
+        <li>
+          Question resolved: 
+          <% if (@question.resolved == true) %>
+          YES
+          <% else %>
+          NO
+          <% end %>      
+        </li>             
+        <li>Time Posted: 
+          <%= @question.created_at.localtime.strftime("%b %d at %l:%M") %>
+        </li>  
+      </ul>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form">  
+      
+        <p>Add your answer here!</p>
+        <%= form_for @comment do |f| %>
+          <% if @comment.errors.any? %>
+            <div class="error_messages">
+              <h2>Form is invalid</h2>
+              <ul>
+                <% for message in @comment.errors.full_messages %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+  
+        <div class="form-group">
+          <%= f.label :answer, "Comment" %>
+          <%= f.text_area :answer %>
+        </div>
+    
+        <div class="form-group">
+          <%= f.hidden_field("user_id", {:value => @user.id})%>
+        </div>
+  
+        <div class="form-group">
+          <%= f.hidden_field("question_id", {:value => params[:id]})%>
+        </div>
+    
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+        <% end %>
 
-    <div class="answers">
+      </div>
+    </div>
+    
+    <div class= "col-md-6">
       <p>Comments added to this question:</p>
       <p>---------------------------------------------------------------</p>
       <% if (@comments.length != 0) %>
@@ -45,62 +87,13 @@
           </ul>
         </li>
         <li>----------------</li>
+        <% end %>
       </ul>
-  
-      <% end %>
       <% else %>
       <p>None yet. Be the first to answer this question!</p>
       <% end %>
     </div>
-
   </div>
-
-  
-    <nav><ul>
-      <% if(current_user.id == @question.user_id)%>
-      <p>If this is your question, you can click this link to edit the question.</p><p>Please mark it resolved once you have your answer!</p>
-      <li><a href="/questions/<%= @question.id %>/edit">Edit Your Question</a></li>
-      <%else%>
-      <!-- <li>You can edit your questions only.</li> -->
-      <%end%>
- 
-      <li>Add your answer here!</li>
-      <%= form_for @comment do |f| %>
-      <% if @comment.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
-        <ul>
-          <% for message in @comment.errors.full_messages %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-      <% end %>
-      <div class="form-group">
-        <%= f.label "Comment" %>
-        <%= f.text_area :answer %>
-      </div>
-      <div class="form-group">
-        <%= f.hidden_field("user_id", {:value => @user.id})%>
-   
-      </div>
-  
-      <div class="form-group">
-        <%= f.hidden_field("question_id", {:value => params[:id]})%>
-   
-      </div>
-   <div class="form-group">
-     <button type="submit" class="btn btn-default"><%= f.submit %>
-   </div>
-   <% end %>
- </div>
-    </li>
-
- 
-    </ul>
-  </nav>
-
 </div>
+    
 
-
-<!--want to do a select from comments table based on question id -->
