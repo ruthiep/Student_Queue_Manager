@@ -58,40 +58,39 @@
     </div>
     
     <div class="col-md-4">
-      <div class="form">  
       
-        <p>Add your answer here!</p>
-        <%= form_for @comment do |f| %>
-        <% if @comment.errors.any? %>
-        <div class="error_messages">
-          <h2>Form is invalid</h2>
-          <ul>
-            <% for message in @comment.errors.full_messages %>
-            <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-        <% end %>
-  
-        <div class="form-group">
-          <%= f.label :answer, "Comment" %>
-          <%= f.text_area :answer %>
-        </div>
-    
-        <div class="form-group">
-          <%= f.hidden_field("user_id", {:value => @user.id})%>
-        </div>
-  
-        <div class="form-group">
-          <%= f.hidden_field("question_id", {:value => params[:id]})%>
-        </div>
-    
-      
-          <%= f.submit %>
-        
-        <% end %>
-
+      <p>Add your answer here!</p>
+      <%= form_for @comment do |f| %>
+      <% if @comment.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+          <% for message in @comment.errors.full_messages %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
       </div>
+      <% end %>
+  
+      <div class="form-group">
+        <%= f.label :answer, "Comment" %>
+        <%= f.text_area :answer %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.hidden_field("user_id", {:value => @user.id})%>
+      </div>
+  
+      <div class="form-group">
+        <%= f.hidden_field("question_id", {:value => params[:id]})%>
+      </div>
+    
+      <div class="form-group">
+        <%= f.submit %>
+      </div>
+      <% end %>
+
+        
     </div>
   </div>
 </div>
