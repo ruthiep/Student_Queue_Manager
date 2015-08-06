@@ -1,38 +1,66 @@
 <div class="container">
   
   <h1>Edit your information here</h1>
-<form class="form-horizontal">
-<%= form_for @question do |f| %>
- <ul>
-  <li>Question: <%= f.text_area :steps_taken%></li>
- 
- <li> Expected Results: <%= f.text_area :expected_results%></li>
-  
-  <li>Actual Results: <%= f.text_area :actual_results%></li>
-  
-  <li>Code Link: <%= f.text_area :code_link%></li>
-  
-  <li>Urgency Level: <%= f.select :urgency_id, 
-    options_for_select([
-      [1, 1],
-      [2, 2],
-      [3,3]
-    ])%></li>
-  
-  <li>Resolved Y/N: <%= f.check_box :resolved%></li>
-</ul>
 
-         <div class="form-group">
-           <button type="submit" class="btn btn-default"><%= f.submit %>
-         </div>
-         <% end %>
-       </div>
-</form>
+  <%= form_for @question do |f| %>
+    <div class="row">
+      <div class= "form-group col-md-2 col-md-offset-1">
+        Question: 
+      </div>
+      <div class="form-group col-md-6 col-md-offset-1">
+        <%= f.text_area :steps_taken%>
+      </div>
+    </div>
+ 
+    <div class="row">
+      <div class= "form-group col-md-2 col-md-offset-1">
+        Expected Results:
+      </div>
+      <div class="form-group col-md-6 col-md-offset-1">
+         <%= f.text_area :expected_results%>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class= "form-group col-md-2 col-md-offset-1">
+        Actual Results: 
+      </div>
+      <div class="form-group col-md-6 col-md-offset-1">
+        <%= f.text_area :actual_results%>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class= "form-group col-md-2 col-md-offset-1">
+        Code Link: 
+      </div>
+      <div class="form-group col-md-6 col-md-offset-1">
+        <%= f.text_area :code_link%>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class= "form-group col-md-2 col-md-offset-1">
+        Urgency Level: 
+      </div>
+      <div class="form-group col-md-6 col-md-offset-1">
+        <%= f.select :urgency_id, 
+        options_for_select([
+          [1, 1],
+          [2, 2],
+          [3,3]
+          ])%>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class= "form-group col-md-2 col-md-offset-1">
+        Resolved Y/N: <%= f.check_box :resolved%>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <%= f.submit %>
+    </div>
+  <% end %>
 </div>
-     <!-- f.select :urgency_id, options_for_select([
-    ["I cannot move forward at all, not even by changing direction.", 1],
-    ["This is important, but I can work on something else for a bit.", 2],
-    ["General concept question, or otherwise low priority.", 3]
-    ]) --> 
-       
-        
