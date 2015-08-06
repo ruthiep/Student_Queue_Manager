@@ -3,7 +3,7 @@
   <div class="row"> 
     <div class="col-md-6 col-md-offset-1">
       <ul>
-        <li>Question: <%= markdown @question.steps_taken %></li>
+        <li><h2>Question: </h2><%= markdown @question.steps_taken %></li>
         <li>Asked by: <%= @asker.name %></li>
         <li>Expected Results: <%= markdown @question.expected_results %></li>
         <li>Actual Results: <%= markdown @question.actual_results %></li>
@@ -38,7 +38,7 @@
   
   <div class="row">
     <div class= "col-md-6 col-md-offset-1">
-      <p>Comments added to this question:</p>
+      <h3>Comments added to this question:</h3>
       <p>---------------------------------------------------------------</p>
       <% if (@comments.length != 0) %>
       <ul>
@@ -60,7 +60,7 @@
     
     <div class="col-md-4">
       
-      <p>Add your answer here!</p>
+      <h3>Add your answer here!</h3>
       <%= form_for @comment do |f| %>
       <% if @comment.errors.any? %>
       <div class="error_messages">
